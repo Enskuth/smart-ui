@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Home Control</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #ffffff);
+      color: #2c3e50;
+      text-align: center;
+    }
+    .container {
+      padding: 40px 20px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .btn {
+      display: block;
+      width: 80%;
+      max-width: 300px;
+      margin: 15px auto;
+      padding: 15px;
+      font-size: 18px;
+      background: #00bcd4;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #0097a7;
+    }
+
+    .lang {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+    }
+
+    .navbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #ffffff;
+      display: flex;
+      justify-content: space-around;
+      border-top: 1px solid #ccc;
+      padding: 10px 0;
+    }
+
+    .navbar div {
+      font-size: 14px;
+      color: #777;
+    }
+    .navbar .active {
+      color: #00bcd4;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ภาษา -->
+  <div class="lang">
+    <select onchange="changeLang(this.value)">
+      <option value="th">TH</option>
+      <option value="en">EN</option>
+    </select>
+  </div>
+
+  <div class="container">
+    <h1 id="title">บ้านของฉัน 🏠</h1>
+    <p id="subtitle">ยินดีต้อนรับสู่ระบบควบคุมสมาร์ทโฮม</p>
+
+    <button class="btn" onclick="goTo('control')" id="btnControl">🛠️ เข้าควบคุม</button>
+    <button class="btn" onclick="goTo('stats')" id="btnStats">📊 ดูสถิติ</button>
+    <button class="btn" onclick="goTo('about')" id="btnAbout">ℹ️ เกี่ยวกับ</button>
+  </div>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="active">🏠 หน้าหลัก</div>
+    <div>📁 ห้อง</div>
+    <div>🧠 อัจฉริยะ</div>
+    <div>📊 สถิติ</div>
+    <div>👤 โปรไฟล์</div>
+  </div>
+
+  <script>
+    const text = {
+      th: {
+        title: "บ้านของฉัน 🏠",
+        subtitle: "ยินดีต้อนรับสู่ระบบควบคุมสมาร์ทโฮม",
+        btnControl: "🛠️ เข้าควบคุม",
+        btnStats: "📊 ดูสถิติ",
+        btnAbout: "ℹ️ เกี่ยวกับ"
+      },
+      en: {
+        title: "My Smart Home 🏠",
+        subtitle: "Welcome to the smart home control system",
+        btnControl: "🛠️ Control Panel",
+        btnStats: "📊 View Stats",
+        btnAbout: "ℹ️ About"
+      }
+    };
+
+    function changeLang(lang) {
+      document.getElementById("title").innerText = text[lang].title;
+      document.getElementById("subtitle").innerText = text[lang].subtitle;
+      document.getElementById("btnControl").innerText = text[lang].btnControl;
+      document.getElementById("btnStats").innerText = text[lang].btnStats;
+      document.getElementById("btnAbout").innerText = text[lang].btnAbout;
+    }
+
+    function goTo(page) {
+      alert("กำลังไปหน้า: " + page);
+      // 👉 ถ้ามีไฟล์ control.html / stats.html / about.html ให้เปลี่ยนเป็น location.href
+      // location.href = page + ".html";
+    }
+
+    // เริ่มต้นภาษาไทย
+    changeLang("th");
+  </script>
+
+</body>
+</html>
