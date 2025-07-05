@@ -101,14 +101,14 @@
   <script>
     const text = {
       th: {
-        title: "บ้านของฉัน 🏠",
+        title: "SMT",
         subtitle: "ยินดีต้อนรับสู่ระบบควบคุมสมาร์ทโฮม",
         btnControl: "🛠️ เข้าควบคุม",
         btnStats: "📊 ดูสถิติ",
         btnAbout: "ℹ️ เกี่ยวกับ"
       },
       en: {
-        title: "My Smart Home 🏠",
+        title: "SMT",
         subtitle: "Welcome to the smart home control system",
         btnControl: "🛠️ Control Panel",
         btnStats: "📊 View Stats",
@@ -125,9 +125,7 @@
     }
 
     function goTo(page) {
-      alert("กำลังไปหน้า: " + page);
-      // 👉 ถ้ามีไฟล์ control.html / stats.html / about.html ให้เปลี่ยนเป็น location.href
-      // location.href = page + ".html";
+      location.href = page + ".html"; // เปลี่ยนหน้าไปยังไฟล์ .html จริง
     }
 
     // เริ่มต้นภาษาไทย
